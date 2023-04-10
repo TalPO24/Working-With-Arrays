@@ -71,7 +71,7 @@ const currencies = new Map([
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-
+/*
 //* Simple array methods
 let arr = ['a', 'b', 'c', 'd', 'e']
 
@@ -109,3 +109,15 @@ console.log([...arr, ...arr2]) // this gives us the exact same result and it als
 // JOIN
 //* The join() method creates and returns a new string by concatenating all of the elements in an array (or an array-like object), separated by commas or a specified separator string. If the array has only one item, then that item will be returned without using the separator
 console.log(letters.join('-'))
+*/
+
+//* The new at method
+//* The at() method takes an integer value and returns the item at that index, allowing for positive and negative integers. Negative integers count back from the last item in the array.
+const arr = [23, 11, 64]
+console.log(arr[0])
+console.log(arr.at(0))
+
+console.log(arr.at(-1))
+
+console.log('jonas'.at(0))
+console.log('jonas'.at(-1))
