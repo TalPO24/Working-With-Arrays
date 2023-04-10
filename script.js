@@ -69,7 +69,6 @@ const currencies = new Map([
     ['GBP', 'Pound sterling'],
 ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /*
 //* Simple array methods
@@ -111,6 +110,7 @@ console.log([...arr, ...arr2]) // this gives us the exact same result and it als
 console.log(letters.join('-'))
 */
 
+
 //* The new at method
 //* The at() method takes an integer value and returns the item at that index, allowing for positive and negative integers. Negative integers count back from the last item in the array.
 const arr = [23, 11, 64]
@@ -121,3 +121,23 @@ console.log(arr.at(-1))
 
 console.log('jonas'.at(0))
 console.log('jonas'.at(-1))
+
+//* Looping Arrays: forEach
+//* The forEach() method executes a provided function once for each array element.
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+for (const movement of movements) {
+    if (movement > 0) {
+        console.log(`You deposited ${movement}`)
+    } else {
+        console.log(`You withdraw ${Math.abs(movement)}`)
+    }
+}
+console.log('----- forEach -----')
+movements.forEach(function(movement, index, array) {
+    if (movement > 0) {
+        console.log(`Movment${index + 1}: You deposited ${movement}`)
+    } else {
+        console.log(`Movment${index + 1}: You withdraw ${Math.abs(movement)}`)
+    }
+})
