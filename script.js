@@ -61,45 +61,61 @@ const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
 
-/*
-//* Simple array methods
-let arr = ['a', 'b', 'c', 'd', 'e']
+const displayMovments = function(movments) {
+    containerMovements.innerHTML = ''
+    movments.forEach(function(mov, i) {
+        const type = mov > 0 ? 'deposit' : 'withdrawal'
 
-// SLICE
-//* The slice() method returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included) where start and end represent the index of items in that array. The original array will not be modified.
-console.log(arr.slice(2)) // The third element in the array.
-console.log(arr.slice(2, 4))
-console.log(arr.slice(-2))
-console.log(arr.slice(-1)) // The last element in the array.
-console.log(arr.slice(1, -2))
-console.log(arr.slice()) // 1) The same exact array (['a', 'b', 'c', 'd', 'e'])
-console.log([...arr]) // 2) The same exact array (['a', 'b', 'c', 'd', 'e'])
+        const html = `
+        <div class="movements">
+        <div class="movements__row">
+            <div class="movements__type--${type} movements__type--deposit">${i+1} ${type}</div>
+            <div class="movements__value">${mov}</div>
+        </div>
+    `
+        containerMovements.insertAdjacentHTML('afterbegin', html)
+    })
+}
+displayMovments(account1.movements)
+    /*
+    //* Simple array methods
+    let arr = ['a', 'b', 'c', 'd', 'e']
 
-// SPLICE
-//* The splice() method changes the contents of an array by removing or replacing existing elements and/or adding new elements
-// console.log(arr.splice(2))
-arr.splice(-1)
-arr.splice(1, 2)
-console.log(arr)
+    // SLICE
+    //* The slice() method returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included) where start and end represent the index of items in that array. The original array will not be modified.
+    console.log(arr.slice(2)) // The third element in the array.
+    console.log(arr.slice(2, 4))
+    console.log(arr.slice(-2))
+    console.log(arr.slice(-1)) // The last element in the array.
+    console.log(arr.slice(1, -2))
+    console.log(arr.slice()) // 1) The same exact array (['a', 'b', 'c', 'd', 'e'])
+    console.log([...arr]) // 2) The same exact array (['a', 'b', 'c', 'd', 'e'])
 
-// REVERSE
-//* The reverse() method reverses an array in place and returns the reference to the same array, the first array element now becoming the last, and the last array element becoming the first. In other words, elements order in the array will be turned towards the direction opposite to that previously stated.
-arr = ['a', 'b', 'c', 'd', 'e']
-const arr2 = ['j', 'i', 'h', 'g', 'f']
-console.log(arr2.reverse())
-console.log(arr2)
+    // SPLICE
+    //* The splice() method changes the contents of an array by removing or replacing existing elements and/or adding new elements
+    // console.log(arr.splice(2))
+    arr.splice(-1)
+    arr.splice(1, 2)
+    console.log(arr)
 
-// CONCAT
-//* The concat() method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.
-const letters = arr.concat(arr2)
-console.log(letters)
+    // REVERSE
+    //* The reverse() method reverses an array in place and returns the reference to the same array, the first array element now becoming the last, and the last array element becoming the first. In other words, elements order in the array will be turned towards the direction opposite to that previously stated.
+    arr = ['a', 'b', 'c', 'd', 'e']
+    const arr2 = ['j', 'i', 'h', 'g', 'f']
+    console.log(arr2.reverse())
+    console.log(arr2)
 
-console.log([...arr, ...arr2]) // this gives us the exact same result and it also does not mutate any of the involved arrays.
+    // CONCAT
+    //* The concat() method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.
+    const letters = arr.concat(arr2)
+    console.log(letters)
 
-// JOIN
-//* The join() method creates and returns a new string by concatenating all of the elements in an array (or an array-like object), separated by commas or a specified separator string. If the array has only one item, then that item will be returned without using the separator
-console.log(letters.join('-'))
-*/
+    console.log([...arr, ...arr2]) // this gives us the exact same result and it also does not mutate any of the involved arrays.
+
+    // JOIN
+    //* The join() method creates and returns a new string by concatenating all of the elements in an array (or an array-like object), separated by commas or a specified separator string. If the array has only one item, then that item will be returned without using the separator
+    console.log(letters.join('-'))
+    */
 
 /*
 //* The new at method
@@ -138,6 +154,8 @@ movements.forEach(function(movement, index, array) {
 })
 */
 
+
+/*
 //* forEach With Maps and Sets
 
 //* MAP
@@ -157,3 +175,4 @@ console.log(currenciesUnique)
 currenciesUnique.forEach(function(value, _, map) {
     console.log(`${value}: ${value}`)
 })
+*/
