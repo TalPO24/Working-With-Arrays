@@ -61,9 +61,9 @@ const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
 
-const displayMovments = function(movments) {
+const displayMovments = function(movements) {
     containerMovements.innerHTML = ''
-    movments.forEach(function(mov, i) {
+    movements.forEach(function(mov, i) {
         const type = mov > 0 ? 'deposit' : 'withdrawal'
 
         const html = `
@@ -78,7 +78,7 @@ const displayMovments = function(movments) {
 }
 displayMovments(account1.movements)
 
-
+/*
 //* Challenge #1
 const juliaData = [3, 5, 2, 12, 7]
 const kateData = [4, 1, 15, 8, 3]
@@ -98,7 +98,7 @@ const checkDogs = function() {
     })
 }
 checkDogs()
-
+*/
 
 // movements.forEach(function(movement, index, array) {
 //     if (movement > 0) {
@@ -207,3 +207,28 @@ currenciesUnique.forEach(function(value, _, map) {
     console.log(`${value}: ${value}`)
 })
 */
+
+//* The Map method
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const eurToUsd = 1.1
+
+// const movmentsUSD = movements.map(function(mov) {
+//     return Math.trunc(mov * eurToUsd)
+// })
+console.log(movements)
+    // console.log(movmentsUSD)
+
+const movmentsUSDfor = movements.map(mov => mov * eurToUsd)
+console.log(movmentsUSDfor)
+
+const movmentsDescriptions = movements.map((mov, i, arr) =>
+    `Movment ${i + 1}: You ${mov > 0 ? 'deposited': 'withdraw'} ${Math.abs(mov)}`
+
+    // ⬆️ // the function below is the same function as the function above.
+    // if (mov > 0) {
+    //     return `Movment${i + 1}: You deposited ${mov}`
+    // } else {
+    //     return `Movment${i + 1}: You withdraw ${Math.abs(mov)}`
+    // }
+)
+console.log(movmentsDescriptions)
