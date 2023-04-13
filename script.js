@@ -78,7 +78,7 @@ const displayMovments = function(movements) {
 }
 displayMovments(account1.movements)
 
-
+/*
 //* Cumputing UserNames
 const createUsernames = function(accs) {
     accs.forEach(function(acc) {
@@ -91,6 +91,7 @@ const createUsernames = function(accs) {
 };
 createUsernames(accounts);
 console.log(accounts)
+*/
 
 /*
 //* Challenge #1
@@ -223,10 +224,10 @@ currenciesUnique.forEach(function(value, _, map) {
 */
 
 
-
+//* Data Transformation: map, filter, reduce.
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 /*
 //* The Map method
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 const eurToUsd = 1.1
 
 // const movmentsUSD = movements.map(function(mov) {
@@ -250,3 +251,26 @@ const movmentsDescriptions = movements.map((mov, i, arr) =>
 )
 console.log(movmentsDescriptions)
 */
+
+//* The Filter method
+const deposits = movements.filter(function(mov) {
+    return mov > 0;
+})
+console.log(movements)
+console.log(deposits)
+    // ⬆️ // the function below is the same function as the function above.
+const depositsFor = []
+for (const mov of movements)
+    if (mov > 0) {
+        depositsFor.push(mov)
+    }
+console.log(depositsFor)
+
+//* mini-challenge
+const withdrawl = movements.filter(function(mov) {
+    return mov < 0
+})
+console.log(withdrawl)
+    // ⬆️ // the function below is the same function as the function above. // ARROW FUNCTION
+const withdrawls = movements.filter(mov => mov < 0)
+console.log(withdrawls)
