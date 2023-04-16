@@ -78,7 +78,13 @@ const displayMovments = function(movements) {
 }
 displayMovments(account1.movements)
 
-/*
+const calcDisplayBalance = function(movements) {
+    const balance = movements.reduce((acc, mov) => acc + mov, 0)
+    labelBalance.textContent = `${balance} EUR`
+}
+calcDisplayBalance(account1.movements)
+
+
 //* Cumputing UserNames
 const createUsernames = function(accs) {
     accs.forEach(function(acc) {
@@ -90,8 +96,9 @@ const createUsernames = function(accs) {
     });
 };
 createUsernames(accounts);
-console.log(accounts)
-*/
+
+
+
 
 /*
 //* Challenge #1
@@ -252,6 +259,7 @@ const movmentsDescriptions = movements.map((mov, i, arr) =>
 console.log(movmentsDescriptions)
 */
 
+/*
 //* The Filter method
 const deposits = movements.filter(function(mov) {
     return mov > 0;
@@ -274,3 +282,34 @@ console.log(withdrawl)
     // ⬆️ // the function below is the same function as the function above. // ARROW FUNCTION
 const withdrawls = movements.filter(mov => mov < 0)
 console.log(withdrawls)
+*/
+
+
+//* The Reduce method
+//* The reduce() method executes a user-supplied "reducer" callback function on each element of the array, in order, passing in the return value from the calculation on the preceding element. The final result of running the reducer across all elements of the array is a single value.
+
+console.log(movements)
+    // accumulator -> SNOWBALL
+
+// const balance = movements.reduce(function(acc, cur, i, arr) {
+//     console.log(`Iteration ${i}: ${acc}`)
+//     return acc + cur
+// }, 0)
+// console.log(balance)
+
+const balance = movements.reduce((acc, cur) => // Arrow function
+    acc + cur, 0)
+console.log(balance)
+
+let balance2 = 0
+for (const mov of movements) balance2 += mov;
+console.log(balance2)
+
+//Maximum value
+const max = movements.reduce((acc, mov) => {
+    if (acc > mov) {
+        return acc
+    } else
+        return mov
+}, movements[0])
+console.log(max)
