@@ -284,21 +284,20 @@ const withdrawls = movements.filter(mov => mov < 0)
 console.log(withdrawls)
 */
 
-
+/*
 //* The Reduce method
 //* The reduce() method executes a user-supplied "reducer" callback function on each element of the array, in order, passing in the return value from the calculation on the preceding element. The final result of running the reducer across all elements of the array is a single value.
 
 console.log(movements)
     // accumulator -> SNOWBALL
 
-// const balance = movements.reduce(function(acc, cur, i, arr) {
-//     console.log(`Iteration ${i}: ${acc}`)
-//     return acc + cur
-// }, 0)
-// console.log(balance)
+const balance = movements.reduce(function(acc, cur, i, arr) {
+    console.log(`Iteration ${i}: ${acc}`)
+    return acc + cur
+}, 0)
+console.log(balance)
 
-const balance = movements.reduce((acc, cur) => // Arrow function
-    acc + cur, 0)
+const balance = movements.reduce((acc, cur) => acc + cur, 0)
 console.log(balance)
 
 let balance2 = 0
@@ -313,3 +312,15 @@ const max = movements.reduce((acc, mov) => {
         return mov
 }, movements[0])
 console.log(max)
+*/
+
+//* Challeng2 #2
+const calcAverageHumanAge = function(ages) {
+    const humanAges = ages.map(age => (age <= 2 ? 2 * age : 16 + age * 4));
+    const adults = humanAges.filter(age => age >= 18);
+    const average = adults.reduce((acc, age) => acc + age, 0) / adults.length
+    return average;
+}
+const average1 = calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3])
+const average2 = calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4])
+console.log(average1, average2)
