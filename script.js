@@ -464,6 +464,7 @@ const account = accounts.find(acc => acc.owner === 'Jessica Davis')
 console.log(account)
 */
 
+/*
 //* Some and Every
 console.log(movements)
 
@@ -485,3 +486,36 @@ const deposit = mov => mov > 0
 console.log(movements.some(deposit))
 console.log(movements.every(deposit))
 console.log(movements.filter(deposit))
+*/
+
+//* Flat and FlatMap
+// The flat() method creates a new array with all sub-array elements concatenated into it recursively up to the specified depth.
+const arr = [
+    [1, 2, 3],
+    [4, 5, 6], 7, 8
+]
+console.log(arr.flat()) // 1 level deep
+
+
+const arrDeep = [
+    [
+        [1, 2], 3
+    ],
+    [4, [5, 6]], 7, 8
+]
+console.log(arrDeep.flat(2)) // 2 level deep
+
+// const accountMovements = accounts.map(acc => acc.movements)
+// console.log(accountMovements)
+
+// const allMovements = accountMovements.flat()
+// console.log(allMovements)
+
+// const overallBalacne = allMovements.reduce((acc, mov) => acc + mov, 0)
+
+const overallBalacne = accounts.map(acc => acc.movements).flat().reduce((acc, mov) => acc + mov, 0)
+console.log(overallBalacne)
+
+// The flatMap() method returns a new array formed by applying a given callback function to each element of the array, and then flattening the result by one level
+const overallBalacne2 = accounts.flatMap(acc => acc.movements).reduce((acc, mov) => acc + mov, 0)
+console.log(overallBalacne2)
